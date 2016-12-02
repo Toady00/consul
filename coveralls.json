@@ -1,0 +1,9 @@
+{
+  "skip_files": [
+    "test",
+    "lib/consul/http/raw.ex"
+  ],
+  "coverage_options": {
+    "treat_no_relevant_lines_as_covered": true
+  }
+}
