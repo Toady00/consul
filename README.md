@@ -134,7 +134,7 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 
     ```elixir
     def deps do
-      [{:consul_client, "~> 0.1.0"}]
+      [{:consul, "~> 0.1.3", hex: :consul_client}]
     end
     ```
 
