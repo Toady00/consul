@@ -5,11 +5,10 @@
 /Users/brandon/code/sandbox/consul/docs/fonts/icomoon.ttf
 /Users/brandon/code/sandbox/consul/docs/fonts/icomoon.woff
 index.html
-README.html
+readme.html
 404.html
 dist/sidebar_items.js
 Consul.html
 Consul.HTTP.Client.html
 Consul.HTTP.Raw.html
 api-reference.html
-readme.html

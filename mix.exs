@@ -16,7 +16,7 @@ defmodule Consul.Mixfile do
      homepage_url: "https://github.com/Toady00/consul",
      description: description(),
      package: package(),
-     docs: [main: "README", extras: ["README.md"], output: "docs"]]
+     docs: [main: "readme", extras: ["README.md"], output: "docs"]]
   end
 
   def application do
