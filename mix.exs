@@ -3,7 +3,7 @@ defmodule Consul.Mixfile do
 
   def project do
     [app: :consul,
-     version: "0.1.0",
+     version: "0.1.1",
      elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -46,7 +46,7 @@ defmodule Consul.Mixfile do
   defp package do
     [
       name: :consul_client,
-      files: ["lib", "mix.exs", "README*", "readme*", "LICENSE*", "license*"],
+      files: ["lib", "mix.exs", "README*", "readme*", "LICENSE*", "license*", "doc"],
       maintainers: ["G. Brandon Dennis"],
       licenses: ["MIT"],
       link: %{"GitHub" => "https://github.com/toady00/consul"}
