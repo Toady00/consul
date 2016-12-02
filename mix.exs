@@ -46,10 +46,11 @@ defmodule Consul.Mixfile do
   defp package do
     [
       name: :consul_client,
-      files: ["lib", "mix.exs", "README*", "readme*", "LICENSE*", "license*", "doc"],
+      files: ["lib", "mix.exs", "README.md", "LICENSE.txt", "docs"],
       maintainers: ["G. Brandon Dennis"],
       licenses: ["MIT"],
-      link: %{"GitHub" => "https://github.com/toady00/consul"}
+      links: %{"GitHub" => "https://github.com/toady00/consul",
+              "Documentation" => "https://toady00.github.io/consul"}
     ]
   end
 end
