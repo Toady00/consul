@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.14.3">
-    <title>Consul – Consul v0.1.0</title>
+    <title>Consul – Consul v0.1.1</title>
     <link rel="stylesheet" href="dist/app-091c05798a.css" />
     
     <script src="dist/sidebar_items.js"></script>
@@ -20,13 +20,13 @@
 <section class="sidebar">
 
   
-  <a href="Consul.html" class="sidebar-projectLink">
+  <a href="README.html" class="sidebar-projectLink">
     <div class="sidebar-projectDetails">
       <h1 class="sidebar-projectName">
         Consul
       </h1>
       <h2 class="sidebar-projectVersion">
-        v0.1.0
+        v0.1.1
       </h2>
     </div>
     
@@ -110,73 +110,212 @@ Consul.HTTP.Raw.kv_put &quot;elixir&quot;, &quot;is awesome&quot;, cas: 23</code
   Endpoint -&gt; Function mappings
 </h2>
 
-<p>Endpoint                                   |Function
-—————————————————————-|—————————————-
-v1/acl/create                              | <code class="inline">:acl_create</code>
-v1/acl/update                              | <code class="inline">:acl_update</code>
-v1/acl/destroy/#{id}                       | <code class="inline">:acl_destroy</code>
-v1/acl/info/#{id}                          | <code class="inline">:acl_info</code>
-v1/acl/clone/#{id}                         | <code class="inline">:acl_clone</code>
-v1/acl/list                                | <code class="inline">:acl_list</code>
-v1/acl/replication                         | <code class="inline">:acl_replication</code>
-v1/agent/checks                            | <code class="inline">:agent_checks</code>
-v1/agent/services                          | <code class="inline">:agent_services</code>
-v1/agent/members                           | <code class="inline">:agent_members</code>
-v1/agent/self                              | <code class="inline">:agent_self</code>
-v1/agent/maintenance                       | <code class="inline">:agent_maintenance</code>
-v1/agent/join/#{address}                   | <code class="inline">:agent_join</code>
-v1/agent/force-leave/#{node_id}            | <code class="inline">:agent_force_leave</code>
-v1/agent/check/register                    | <code class="inline">:agent_check_register</code>
-v1/agent/check/deregister/#{check_id}      | <code class="inline">:agent_check_deregister</code>
-v1/agent/check/pass/#{check_id}            | <code class="inline">:agent_check_pass</code>
-v1/agent/check/warn/#{check_id}            | <code class="inline">:agent_check_warn</code>
-v1/agent/check/fail/#{check_id}            | <code class="inline">:agent_check_fail</code>
-v1/agent/check/update/#{check_id}          | <code class="inline">:agent_check_update</code>
-v1/agent/service/register                  | <code class="inline">:agent_service_register</code>
-v1/agent/service/deregister/#{service_id}  | <code class="inline">:agent_service_deregister</code>
-v1/agent/service/maintenance/#{service_id} | <code class="inline">:agent_service_maintenance</code>
-v1/catalog/register                        | <code class="inline">:catalog_register</code>
-v1/catalog/deregister                      | <code class="inline">:catalog_deregister</code>
-v1/catalog/datacenters                     | <code class="inline">:catalog_datacenters</code>
-v1/catalog/nodes                           | <code class="inline">:catalog_nodes</code>
-v1/catalog/services                        | <code class="inline">:catalog_services</code>
-v1/catalog/services/#{service}             | <code class="inline">:catalog_service</code>
-v1/catalog/node/#{node_id}                 | <code class="inline">:catalog_node</code>
-v1/event/fire/#{name}                      | <code class="inline">:event_fire</code>
-v1/event/list                              | <code class="inline">:event_list</code>
-v1/health/node/#{node_id}                  | <code class="inline">:health_node</code>
-v1/health/checks/#{service}                | <code class="inline">:health_checks</code>
-v1/health/service/#{service}               | <code class="inline">:health_service</code>
-v1/health/state/#{state}                   | <code class="inline">:health_state</code>
-v1/kv/#{key}                               | <code class="inline">:kv_get</code>
-v1/kv/#{key}                               | <code class="inline">:kv_put</code>
-v1/kv/#{key}                               | <code class="inline">:kv_delete</code>
-v1/txn                                     | <code class="inline">:kv_txn</code>
-v1/coordinate/datacenters                  | <code class="inline">:coordinate_datacenters</code>
-v1/coordinate/nodes                        | <code class="inline">:coordinate_nodes</code>
-v1/operator/raft/configuration             | <code class="inline">:operator_raft_configuration</code>
-v1/operator/raft/peer                      | <code class="inline">:operator_raft_peer_delete</code>
-v1/operator/keyring                        | <code class="inline">:operator_keyring_get</code>
-v1/operator/keyring                        | <code class="inline">:operator_keyring_put</code>
-v1/operator/keyring                        | <code class="inline">:operator_keyring_post</code>
-v1/operator/keyring                        | <code class="inline">:operator_keyring_delete</code>
-v1/query                                   | <code class="inline">:query_get</code>
-v1/query                                   | <code class="inline">:query_post</code>
-v1/query/#{query}                          | <code class="inline">:query_get_by_id</code>
-v1/query/#{query}                          | <code class="inline">:query_put_by_id</code>
-v1/query/#{query}                          | <code class="inline">:query_delete_by_id</code>
-v1/query/#{query}/execute                  | <code class="inline">:query_execute</code>
-v1/query/#{query}/explain                  | <code class="inline">:query_explain</code>
-v1/session/create                          | <code class="inline">:session_create</code>
-v1/session/destroy/#{session}              | <code class="inline">:session_destroy</code>
-v1/session/info/#{session}                 | <code class="inline">:session_info</code>
-v1/session/node/#{node}                    | <code class="inline">:session_for_node</code>
-v1/session/list                            | <code class="inline">:session_list</code>
-v1/session/renew/#{session}                | <code class="inline">:session_renew</code>
-v1/snapshot                                | <code class="inline">:snapshot_get</code>
-v1/snapshot                                | <code class="inline">:snapshot_put</code>
-v1/status/leader                           | <code class="inline">:status_leader</code>
-v1/status/peers                            | <code class="inline">:status_peers</code></p>
+<table>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left">Endpoint</th><th style="text-align: left">Function</th>
+</tr>
+</thead>
+<tr>
+<td style="text-align: left">v1/acl/create</td><td style="text-align: left"><code class="inline">:acl_create</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/acl/update</td><td style="text-align: left"><code class="inline">:acl_update</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/acl/destroy/#{id}</td><td style="text-align: left"><code class="inline">:acl_destroy</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/acl/info/#{id}</td><td style="text-align: left"><code class="inline">:acl_info</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/acl/clone/#{id}</td><td style="text-align: left"><code class="inline">:acl_clone</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/acl/list</td><td style="text-align: left"><code class="inline">:acl_list</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/acl/replication</td><td style="text-align: left"><code class="inline">:acl_replication</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/agent/checks</td><td style="text-align: left"><code class="inline">:agent_checks</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/agent/services</td><td style="text-align: left"><code class="inline">:agent_services</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/agent/members</td><td style="text-align: left"><code class="inline">:agent_members</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/agent/self</td><td style="text-align: left"><code class="inline">:agent_self</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/agent/maintenance</td><td style="text-align: left"><code class="inline">:agent_maintenance</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/agent/join/#{address}</td><td style="text-align: left"><code class="inline">:agent_join</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/agent/force-leave/#{node_id}</td><td style="text-align: left"><code class="inline">:agent_force_leave</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/agent/check/register</td><td style="text-align: left"><code class="inline">:agent_check_register</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/agent/check/deregister/#{check_id}</td><td style="text-align: left"><code class="inline">:agent_check_deregister</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/agent/check/pass/#{check_id}</td><td style="text-align: left"><code class="inline">:agent_check_pass</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/agent/check/warn/#{check_id}</td><td style="text-align: left"><code class="inline">:agent_check_warn</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/agent/check/fail/#{check_id}</td><td style="text-align: left"><code class="inline">:agent_check_fail</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/agent/check/update/#{check_id}</td><td style="text-align: left"><code class="inline">:agent_check_update</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/agent/service/register</td><td style="text-align: left"><code class="inline">:agent_service_register</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/agent/service/deregister/#{service_id}</td><td style="text-align: left"><code class="inline">:agent_service_deregister</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/agent/service/maintenance/#{service_id}</td><td style="text-align: left"><code class="inline">:agent_service_maintenance</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/catalog/register</td><td style="text-align: left"><code class="inline">:catalog_register</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/catalog/deregister</td><td style="text-align: left"><code class="inline">:catalog_deregister</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/catalog/datacenters</td><td style="text-align: left"><code class="inline">:catalog_datacenters</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/catalog/nodes</td><td style="text-align: left"><code class="inline">:catalog_nodes</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/catalog/services</td><td style="text-align: left"><code class="inline">:catalog_services</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/catalog/services/#{service}</td><td style="text-align: left"><code class="inline">:catalog_service</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/catalog/node/#{node_id}</td><td style="text-align: left"><code class="inline">:catalog_node</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/event/fire/#{name}</td><td style="text-align: left"><code class="inline">:event_fire</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/event/list</td><td style="text-align: left"><code class="inline">:event_list</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/health/node/#{node_id}</td><td style="text-align: left"><code class="inline">:health_node</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/health/checks/#{service}</td><td style="text-align: left"><code class="inline">:health_checks</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/health/service/#{service}</td><td style="text-align: left"><code class="inline">:health_service</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/health/state/#{state}</td><td style="text-align: left"><code class="inline">:health_state</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/kv/#{key}</td><td style="text-align: left"><code class="inline">:kv_get</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/kv/#{key}</td><td style="text-align: left"><code class="inline">:kv_put</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/kv/#{key}</td><td style="text-align: left"><code class="inline">:kv_delete</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/txn</td><td style="text-align: left"><code class="inline">:kv_txn</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/coordinate/datacenters</td><td style="text-align: left"><code class="inline">:coordinate_datacenters</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/coordinate/nodes</td><td style="text-align: left"><code class="inline">:coordinate_nodes</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/operator/raft/configuration</td><td style="text-align: left"><code class="inline">:operator_raft_configuration</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/operator/raft/peer</td><td style="text-align: left"><code class="inline">:operator_raft_peer_delete</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/operator/keyring</td><td style="text-align: left"><code class="inline">:operator_keyring_get</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/operator/keyring</td><td style="text-align: left"><code class="inline">:operator_keyring_put</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/operator/keyring</td><td style="text-align: left"><code class="inline">:operator_keyring_post</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/operator/keyring</td><td style="text-align: left"><code class="inline">:operator_keyring_delete</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/query</td><td style="text-align: left"><code class="inline">:query_get</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/query</td><td style="text-align: left"><code class="inline">:query_post</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/query/#{query}</td><td style="text-align: left"><code class="inline">:query_get_by_id</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/query/#{query}</td><td style="text-align: left"><code class="inline">:query_put_by_id</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/query/#{query}</td><td style="text-align: left"><code class="inline">:query_delete_by_id</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/query/#{query}/execute</td><td style="text-align: left"><code class="inline">:query_execute</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/query/#{query}/explain</td><td style="text-align: left"><code class="inline">:query_explain</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/session/create</td><td style="text-align: left"><code class="inline">:session_create</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/session/destroy/#{session}</td><td style="text-align: left"><code class="inline">:session_destroy</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/session/info/#{session}</td><td style="text-align: left"><code class="inline">:session_info</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/session/node/#{node}</td><td style="text-align: left"><code class="inline">:session_for_node</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/session/list</td><td style="text-align: left"><code class="inline">:session_list</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/session/renew/#{session}</td><td style="text-align: left"><code class="inline">:session_renew</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/snapshot</td><td style="text-align: left"><code class="inline">:snapshot_get</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/snapshot</td><td style="text-align: left"><code class="inline">:snapshot_put</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/status/leader</td><td style="text-align: left"><code class="inline">:status_leader</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/status/peers</td><td style="text-align: left"><code class="inline">:status_peers</code></td>
+</tr>
+</table>
 <h2 id="installation" class="section-heading">
   <a href="#installation" class="hover-link"><i class="icon-link"></i></a>
   Installation
