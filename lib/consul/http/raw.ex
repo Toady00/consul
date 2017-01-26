@@ -394,44 +394,70 @@ defmodule Consul.HTTP.Raw do
     |> Enum.reduce(nil, &(join_segments.(&1, &2)))
   end
 
+  http_option_keys = [:timeout,
+                      :recv_timeout,
+                      :stream_to,
+                      :async,
+                      :proxy,
+                      :proxy_auth,
+                      :ssl,
+                      :follow_redirect,
+                      :max_redirect]
+
   endpoints = endpoints.v1
   Enum.each(endpoints, fn(endpoint) ->
     case endpoint do
       %{path: path, name: name, method: :get, args: args} ->
         joined_args = Enum.map(args, &({&1, [], __MODULE__}))
         def unquote(name)(unquote_splicing(joined_args), params \\ []) do
-          apply(Consul.HTTP.Client, unquote(:"get!"), [unquote(path_segments_to_macro.(path)), [], [params: params]])
+          {http_options, params} = Keyword.split(params, unquote(http_option_keys))
+          options = Keyword.put(http_options, :params, params)
+          apply(Consul.HTTP.Client, unquote(:"get!"), [unquote(path_segments_to_macro.(path)), [], options])
         end
       %{path: path, name: name, method: :get} ->
         def unquote(name)(params \\ []) do
-          apply(Consul.HTTP.Client, unquote(:"get!"), [unquote(path_segments_to_macro.(path)), [], [params: params]])
+          {http_options, params} = Keyword.split(params, unquote(http_option_keys))
+          options = Keyword.put(http_options, :params, params)
+          apply(Consul.HTTP.Client, unquote(:"get!"), [unquote(path_segments_to_macro.(path)), [], options])
         end
       %{path: path, name: name, method: :delete, args: args} ->
         joined_args = Enum.map(args, &({&1, [], __MODULE__}))
         def unquote(name)(unquote_splicing(joined_args), params \\ []) do
-          apply(Consul.HTTP.Client, unquote(:"delete!"), [unquote(path_segments_to_macro.(path)), [], [params: params]])
+          {http_options, params} = Keyword.split(params, unquote(http_option_keys))
+          options = Keyword.put(http_options, :params, params)
+          apply(Consul.HTTP.Client, unquote(:"delete!"), [unquote(path_segments_to_macro.(path)), [], options])
         end
       %{path: path, name: name, method: :delete} ->
         def unquote(name)(params \\ []) do
-          apply(Consul.HTTP.Client, unquote(:"delete!"), [unquote(path), [], [params: params]])
+          {http_options, params} = Keyword.split(params, unquote(http_option_keys))
+          options = Keyword.put(http_options, :params, params)
+          apply(Consul.HTTP.Client, unquote(:"delete!"), [unquote(path), [], options])
         end
       %{path: path, name: name, method: :put, args: args} ->
         joined_args = Enum.map(args, &({&1, [], __MODULE__}))
         def unquote(name)(unquote_splicing(joined_args), data \\ "", params \\ []) do
-          apply(Consul.HTTP.Client, unquote(:"put!"), [unquote(path_segments_to_macro.(path)), data, [], [params: params]])
+          {http_options, params} = Keyword.split(params, unquote(http_option_keys))
+          options = Keyword.put(http_options, :params, params)
+          apply(Consul.HTTP.Client, unquote(:"put!"), [unquote(path_segments_to_macro.(path)), data, [], options])
         end
       %{path: path, name: name, method: :put} ->
         def unquote(name)(data, params \\ []) do
-          apply(Consul.HTTP.Client, unquote(:"put!"), [unquote(path), data, [], [params: params]])
+          {http_options, params} = Keyword.split(params, unquote(http_option_keys))
+          options = Keyword.put(http_options, :params, params)
+          apply(Consul.HTTP.Client, unquote(:"put!"), [unquote(path), data, [], options])
         end
       %{path: path, name: name, method: :post, args: args} ->
         joined_args = Enum.map(args, &({&1, [], __MODULE__}))
         def unquote(name)(data, unquote_splicing(joined_args), params \\ []) do
-          apply(Consul.HTTP.Client, unquote(:"post!"), [unquote(path_segments_to_macro.(path)), data, [], [params: params]])
+          {http_options, params} = Keyword.split(params, unquote(http_option_keys))
+          options = Keyword.put(http_options, :params, params)
+          apply(Consul.HTTP.Client, unquote(:"post!"), [unquote(path_segments_to_macro.(path)), data, [], options])
         end
       %{path: path, name: name, method: :post} ->
         def unquote(name)(data, params \\ []) do
-          apply(Consul.HTTP.Client, unquote(:"post!"), [unquote(path), data, [], [params: params]])
+          {http_options, params} = Keyword.split(params, unquote(http_option_keys))
+          options = Keyword.put(http_options, :params, params)
+          apply(Consul.HTTP.Client, unquote(:"post!"), [unquote(path), data, [], options])
         end
     end
   end)

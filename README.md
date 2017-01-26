@@ -1,5 +1,7 @@
 # Consul
 
+[![Hex.pm](https://img.shields.io/hexpm/v/consul_client.svg)](https://hex.pm/packages/consul_client)
+
 100% API Complete Consul Client written in Elixir
 
 ## Usage
