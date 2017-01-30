@@ -10,5 +10,9 @@ readme.html
 dist/sidebar_items.js
 Consul.html
 Consul.HTTP.Client.html
+Consul.HTTP.FakeRaw.html
 Consul.HTTP.Raw.html
+Consul.HTTP.Response.html
+Consul.KV.html
+Consul.Watch.html
 api-reference.html
