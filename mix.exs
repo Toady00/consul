@@ -20,7 +20,8 @@ defmodule Consul.Mixfile do
   end
 
   def application do
-    [applications: [:logger, :httpoison, :poison]]
+    [applications: [:logger, :httpoison, :poison],
+     mod: {Consul, []}]
   end
 
   defp deps do
