@@ -46,7 +46,12 @@ defmodule Consul.HTTP.Client do
     Enum.map(items, &decode_body/1)
   end
   defp decode_body(%{"Value" => value} = item) when is_binary(value) do
-    %{item | "Value" => :base64.decode(value)}
+    decoded_value = :base64.decode(value)
+    parsed_value = case Poison.Parser.parse(decoded_value) do
+      {:ok, parsed} -> parsed
+      {:error, {:invalid, _, _}} -> decoded_value
+    end
+    %{item | "Value" => parsed_value}
   end
   defp decode_body(item) do
     item
