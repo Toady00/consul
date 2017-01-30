@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.14.3">
+    <title>Consul – Consul v0.1.3</title>
+    <link rel="stylesheet" href="dist/app-091c05798a.css" />
+    
+    <script src="dist/sidebar_items.js"></script>
+  </head>
+  <body data-type="extras">
+    <script>if(localStorage.getItem('night-mode')) document.body.className += ' night-mode';</script>
+
+<div class="main">
+<button class="sidebar-toggle">
+  <i class="icon-menu"></i>
+</button>
+<section class="sidebar">
+
+  
+  <a href="readme.html" class="sidebar-projectLink">
+    <div class="sidebar-projectDetails">
+      <h1 class="sidebar-projectName">
+        Consul
+      </h1>
+      <h2 class="sidebar-projectVersion">
+        v0.1.3
+      </h2>
+    </div>
+    
+  </a>
+
+  <div class="sidebar-search">
+    <i class="icon-search"></i>
+    <input type="text" class="sidebar-searchInput" placeholder="search" autocomplete="off" />
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Pages</a></li>
+
+    
+      <li><a id="modules-list" href="#full-list">Modules</a></li>
+    
+
+    
+
+    
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+
+<h1>Consul</h1>
+<p>100% API Complete Consul Client written in Elixir</p>
+<h2 id="usage" class="section-heading">
+  <a href="#usage" class="hover-link"><i class="icon-link"></i></a>
+  Usage
+</h2>
+
+<p><strong>This package is very alpha</strong></p>
+<pre><code class="elixir">iex&gt; alias Consul.HTTP.Raw, as: Consul
+Consul.HTTP.Raw
+
+iex&gt; Consul.kv_get &quot;elixir&quot;
+%HTTPoison.Response{body: [%{&quot;CreateIndex&quot; =&gt; 18024, &quot;Flags&quot; =&gt; 0,
+    &quot;Key&quot; =&gt; &quot;elixir&quot;, &quot;LockIndex&quot; =&gt; 0, &quot;ModifyIndex&quot; =&gt; 18024,
+    &quot;Value&quot; =&gt; &quot;wat&quot;}],
+ headers: [{&quot;Content-Type&quot;, &quot;application/json&quot;}, {&quot;X-Consul-Index&quot;, &quot;18024&quot;},
+  {&quot;X-Consul-Knownleader&quot;, &quot;true&quot;}, {&quot;X-Consul-Lastcontact&quot;, &quot;0&quot;},
+  {&quot;Date&quot;, &quot;Thu, 01 Dec 2016 23:33:39 GMT&quot;}, {&quot;Content-Length&quot;, &quot;97&quot;}],
+ status_code: 200}
+
+iex&gt; Consul.kv_get &quot;elixir&quot;, dc: &quot;dc1&quot;
+%HTTPoison.Response{body: [%{&quot;CreateIndex&quot; =&gt; 18024, &quot;Flags&quot; =&gt; 0,
+    &quot;Key&quot; =&gt; &quot;elixir&quot;, &quot;LockIndex&quot; =&gt; 0, &quot;ModifyIndex&quot; =&gt; 18024,
+    &quot;Value&quot; =&gt; &quot;wat&quot;}],
+ headers: [{&quot;Content-Type&quot;, &quot;application/json&quot;}, {&quot;X-Consul-Index&quot;, &quot;18024&quot;},
+  {&quot;X-Consul-Knownleader&quot;, &quot;true&quot;}, {&quot;X-Consul-Lastcontact&quot;, &quot;0&quot;},
+  {&quot;Date&quot;, &quot;Thu, 01 Dec 2016 23:36:06 GMT&quot;}, {&quot;Content-Length&quot;, &quot;97&quot;}],
+ status_code: 200}</code></pre>
+<p>All the functions provided are built during compile time from a map inside the
+<a href="Consul.HTTP.Raw.html"><code class="inline">Consul.HTTP.Raw</code></a> module. The names of the functions correspond with the http
+endpoint exposed by consul. For example the endpoint <code class="inline">v1/acl/create</code> maps to a
+function <code class="inline">Consul.HTTP.Raw.acl_create\1</code>. In cases where the same endpoint
+accepts different HTTP verbs (get, put, post, etc.), the function name are
+postfixed with the verb name. For example the endpoint <code class="inline">v1/kv</code> accepts both get
+and put so there are 2 functions named <code class="inline">kv_get</code> and <code class="inline">kv_put</code>.</p>
+<p>There are a few exceptions where the name of the function wouldn’t make much
+sense. If the function for <code class="inline">v1/session/node</code> was named <code class="inline">session_node</code> it may
+cause some confusion, but <code class="inline">session_for_node</code> makes more sense.</p>
+<p>Also the query endpoints fall into a wierd situation. The endpoint <code class="inline">v1/query</code>
+accepts both a get and a post. So there are 2 functions named <code class="inline">query_get</code> and
+<code class="inline">query_post</code>. But then there is another endpoint <code class="inline">v1/query/#{query_id}</code> that
+accepts get, put, and delete. To avoid confusion, these functions are named
+like <code class="inline">query_get_by_id</code>.</p>
+<p>Every function can take an optional keyword params that get turned into url
+query params. If you need to specify something like the dc to query, or pass
+a consul index, this is how you would do it.</p>
+<pre><code class="elixir"># KV check and set example
+Consul.HTTP.Raw.kv_put &quot;elixir&quot;, &quot;is awesome&quot;, cas: 23</code></pre>
+<h2 id="endpoint-function-mappings" class="section-heading">
+  <a href="#endpoint-function-mappings" class="hover-link"><i class="icon-link"></i></a>
+  Endpoint -&gt; Function mappings
+</h2>
+
+<table>
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th style="text-align: left">Endpoint</th><th style="text-align: left">Function</th>
+</tr>
+</thead>
+<tr>
+<td style="text-align: left">v1/acl/create</td><td style="text-align: left"><code class="inline">:acl_create</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/acl/update</td><td style="text-align: left"><code class="inline">:acl_update</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/acl/destroy/#{id}</td><td style="text-align: left"><code class="inline">:acl_destroy</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/acl/info/#{id}</td><td style="text-align: left"><code class="inline">:acl_info</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/acl/clone/#{id}</td><td style="text-align: left"><code class="inline">:acl_clone</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/acl/list</td><td style="text-align: left"><code class="inline">:acl_list</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/acl/replication</td><td style="text-align: left"><code class="inline">:acl_replication</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/agent/checks</td><td style="text-align: left"><code class="inline">:agent_checks</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/agent/services</td><td style="text-align: left"><code class="inline">:agent_services</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/agent/members</td><td style="text-align: left"><code class="inline">:agent_members</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/agent/self</td><td style="text-align: left"><code class="inline">:agent_self</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/agent/maintenance</td><td style="text-align: left"><code class="inline">:agent_maintenance</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/agent/join/#{address}</td><td style="text-align: left"><code class="inline">:agent_join</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/agent/force-leave/#{node_id}</td><td style="text-align: left"><code class="inline">:agent_force_leave</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/agent/check/register</td><td style="text-align: left"><code class="inline">:agent_check_register</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/agent/check/deregister/#{check_id}</td><td style="text-align: left"><code class="inline">:agent_check_deregister</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/agent/check/pass/#{check_id}</td><td style="text-align: left"><code class="inline">:agent_check_pass</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/agent/check/warn/#{check_id}</td><td style="text-align: left"><code class="inline">:agent_check_warn</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/agent/check/fail/#{check_id}</td><td style="text-align: left"><code class="inline">:agent_check_fail</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/agent/check/update/#{check_id}</td><td style="text-align: left"><code class="inline">:agent_check_update</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/agent/service/register</td><td style="text-align: left"><code class="inline">:agent_service_register</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/agent/service/deregister/#{service_id}</td><td style="text-align: left"><code class="inline">:agent_service_deregister</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/agent/service/maintenance/#{service_id}</td><td style="text-align: left"><code class="inline">:agent_service_maintenance</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/catalog/register</td><td style="text-align: left"><code class="inline">:catalog_register</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/catalog/deregister</td><td style="text-align: left"><code class="inline">:catalog_deregister</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/catalog/datacenters</td><td style="text-align: left"><code class="inline">:catalog_datacenters</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/catalog/nodes</td><td style="text-align: left"><code class="inline">:catalog_nodes</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/catalog/services</td><td style="text-align: left"><code class="inline">:catalog_services</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/catalog/services/#{service}</td><td style="text-align: left"><code class="inline">:catalog_service</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/catalog/node/#{node_id}</td><td style="text-align: left"><code class="inline">:catalog_node</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/event/fire/#{name}</td><td style="text-align: left"><code class="inline">:event_fire</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/event/list</td><td style="text-align: left"><code class="inline">:event_list</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/health/node/#{node_id}</td><td style="text-align: left"><code class="inline">:health_node</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/health/checks/#{service}</td><td style="text-align: left"><code class="inline">:health_checks</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/health/service/#{service}</td><td style="text-align: left"><code class="inline">:health_service</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/health/state/#{state}</td><td style="text-align: left"><code class="inline">:health_state</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/kv/#{key}</td><td style="text-align: left"><code class="inline">:kv_get</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/kv/#{key}</td><td style="text-align: left"><code class="inline">:kv_put</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/kv/#{key}</td><td style="text-align: left"><code class="inline">:kv_delete</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/txn</td><td style="text-align: left"><code class="inline">:kv_txn</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/coordinate/datacenters</td><td style="text-align: left"><code class="inline">:coordinate_datacenters</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/coordinate/nodes</td><td style="text-align: left"><code class="inline">:coordinate_nodes</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/operator/raft/configuration</td><td style="text-align: left"><code class="inline">:operator_raft_configuration</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/operator/raft/peer</td><td style="text-align: left"><code class="inline">:operator_raft_peer_delete</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/operator/keyring</td><td style="text-align: left"><code class="inline">:operator_keyring_get</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/operator/keyring</td><td style="text-align: left"><code class="inline">:operator_keyring_put</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/operator/keyring</td><td style="text-align: left"><code class="inline">:operator_keyring_post</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/operator/keyring</td><td style="text-align: left"><code class="inline">:operator_keyring_delete</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/query</td><td style="text-align: left"><code class="inline">:query_get</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/query</td><td style="text-align: left"><code class="inline">:query_post</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/query/#{query}</td><td style="text-align: left"><code class="inline">:query_get_by_id</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/query/#{query}</td><td style="text-align: left"><code class="inline">:query_put_by_id</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/query/#{query}</td><td style="text-align: left"><code class="inline">:query_delete_by_id</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/query/#{query}/execute</td><td style="text-align: left"><code class="inline">:query_execute</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/query/#{query}/explain</td><td style="text-align: left"><code class="inline">:query_explain</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/session/create</td><td style="text-align: left"><code class="inline">:session_create</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/session/destroy/#{session}</td><td style="text-align: left"><code class="inline">:session_destroy</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/session/info/#{session}</td><td style="text-align: left"><code class="inline">:session_info</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/session/node/#{node}</td><td style="text-align: left"><code class="inline">:session_for_node</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/session/list</td><td style="text-align: left"><code class="inline">:session_list</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/session/renew/#{session}</td><td style="text-align: left"><code class="inline">:session_renew</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/snapshot</td><td style="text-align: left"><code class="inline">:snapshot_get</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/snapshot</td><td style="text-align: left"><code class="inline">:snapshot_put</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/status/leader</td><td style="text-align: left"><code class="inline">:status_leader</code></td>
+</tr>
+<tr>
+<td style="text-align: left">v1/status/peers</td><td style="text-align: left"><code class="inline">:status_peers</code></td>
+</tr>
+</table>
+<h2 id="installation" class="section-heading">
+  <a href="#installation" class="hover-link"><i class="icon-link"></i></a>
+  Installation
+</h2>
+
+<p>If <a href="https://hex.pm/docs/publish">available in Hex</a>, the package can be installed as:</p>
+<ol>
+<li><p>Add <code class="inline">consul</code> to your list of dependencies in <code class="inline">mix.exs</code>:</p>
+<pre><code class="elixir">def deps do
+  [{:consul, &quot;~&gt; 0.1.3&quot;, hex: :consul_client}]
+end</code></pre>
+</li>
+<li><p>Ensure <code class="inline">consul</code> is started before your application:</p>
+<pre><code class="elixir">def application do
+  [applications: [:consul]]
+end</code></pre>
+</li>
+</ol>
+
+      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" rel="help" target="_blank">ExDoc</a> (v0.14.3),
+          </span>
+          <span class="line">
+            designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+            </span>
+        </p>
+        <button class="night-mode-toggle" />
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  <script src="dist/app-574613960f.js"></script>
+  </body>
+</html>
+
