@@ -60,4 +60,5 @@ tags
 /deps
 erl_crash.dump
 *.ez
+docs
 
