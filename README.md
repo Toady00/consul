@@ -4,6 +4,11 @@
 
 100% API Complete Consul Client written in Elixir
 
+## New in v0.1.5
+
+Higher level support for KV api and blocking queries on KV api (watching a KV for changes).
+See the hex docs for now. I'll add an quick how-to to the readme soon.
+
 ## Usage
 
 **This package is very alpha**
