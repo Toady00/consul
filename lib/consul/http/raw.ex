@@ -64,7 +64,7 @@ defmodule Consul.HTTP.Raw do
       %{
         path: ["v1", "agent", "maintenance"],
         name: :agent_maintenance,
-        method: :get
+        method: :put
       },
       %{
         path: ["v1", "agent", "join", {:var, :address}],
