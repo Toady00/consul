@@ -33,7 +33,9 @@ defmodule Consul.KV do
   def get(obj, options \\ [])
 
   @doc ~S"""
-  Get a new `Consul.KV` struct from the key of the passed in struct.
+  Get a new `Consul.KV` struct.
+
+  Takes either a `Consul.KV` struct with a valid `key` field or a string path.
 
   `options` are optional. These are the same options the `Consul.HTTP.Raw`
   client will take. They are passed through.
