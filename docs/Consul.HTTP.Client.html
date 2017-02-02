@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.14.3">
-    <title>Consul.HTTP.Client – Consul v0.1.5</title>
+    <title>Consul.HTTP.Client – Consul v0.1.6</title>
     <link rel="stylesheet" href="dist/app-091c05798a.css" />
     
     <script src="dist/sidebar_items.js"></script>
@@ -26,7 +26,7 @@
         Consul
       </h1>
       <h2 class="sidebar-projectVersion">
-        v0.1.5
+        v0.1.6
       </h2>
     </div>
     
@@ -58,7 +58,7 @@
 
 
       <h1>
-        <small class="visible-xs">Consul v0.1.5</small>
+        <small class="visible-xs">Consul v0.1.6</small>
         Consul.HTTP.Client
         
         
@@ -232,7 +232,19 @@ failure</p>
 </div>
 <div class="summary-row">
   <div class="summary-signature">
+    <a href="#process_request_headers/1">process_request_headers(headers)</a>
+  </div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
     <a href="#process_response_body/1">process_response_body(body)</a>
+  </div>
+  
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#process_response_chunk/1">process_response_chunk(chunk)</a>
   </div>
   
 </div>
@@ -300,7 +312,7 @@ exception in case of failure</p>
     <a href="#stream_next/1">stream_next(async_response)</a>
   </div>
   
-    <div class="summary-synopsis"><p>Requests the next message to be streamed for a given <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.AsyncResponse.html"><code class="inline">HTTPoison.AsyncResponse</code></a></p>
+    <div class="summary-synopsis"><p>Requests the next message to be streamed for a given <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.AsyncResponse.html"><code class="inline">HTTPoison.AsyncResponse</code></a></p>
 </div>
   
 </div>
@@ -410,8 +422,8 @@ exception in case of failure</p>
       <div class="specs">
         
           <pre>delete(binary, <a href="#t:headers/0">headers</a>, <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>) ::
-  {:ok, <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.Response.html#t:t/0">HTTPoison.Response.t</a> | <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.AsyncResponse.html#t:t/0">HTTPoison.AsyncResponse.t</a>} |
-  {:error, <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.Error.html#t:t/0">HTTPoison.Error.t</a>}</pre>
+  {:ok, <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.Response.html#t:t/0">HTTPoison.Response.t</a> | <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.AsyncResponse.html#t:t/0">HTTPoison.AsyncResponse.t</a>} |
+  {:error, <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.Error.html#t:t/0">HTTPoison.Error.t</a>}</pre>
         
       </div>
     
@@ -445,8 +457,8 @@ otherwise.</p>
       <div class="specs">
         
           <pre>delete!(binary, <a href="#t:headers/0">headers</a>, <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>) ::
-  <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.Response.html#t:t/0">HTTPoison.Response.t</a> |
-  <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.AsyncResponse.html#t:t/0">HTTPoison.AsyncResponse.t</a></pre>
+  <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.Response.html#t:t/0">HTTPoison.Response.t</a> |
+  <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.AsyncResponse.html#t:t/0">HTTPoison.AsyncResponse.t</a></pre>
         
       </div>
     
@@ -480,8 +492,8 @@ failure.</p>
       <div class="specs">
         
           <pre>get(binary, <a href="#t:headers/0">headers</a>, <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>) ::
-  {:ok, <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.Response.html#t:t/0">HTTPoison.Response.t</a> | <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.AsyncResponse.html#t:t/0">HTTPoison.AsyncResponse.t</a>} |
-  {:error, <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.Error.html#t:t/0">HTTPoison.Error.t</a>}</pre>
+  {:ok, <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.Response.html#t:t/0">HTTPoison.Response.t</a> | <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.AsyncResponse.html#t:t/0">HTTPoison.AsyncResponse.t</a>} |
+  {:error, <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.Error.html#t:t/0">HTTPoison.Error.t</a>}</pre>
         
       </div>
     
@@ -515,8 +527,8 @@ otherwise.</p>
       <div class="specs">
         
           <pre>get!(binary, <a href="#t:headers/0">headers</a>, <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>) ::
-  <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.Response.html#t:t/0">HTTPoison.Response.t</a> |
-  <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.AsyncResponse.html#t:t/0">HTTPoison.AsyncResponse.t</a></pre>
+  <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.Response.html#t:t/0">HTTPoison.Response.t</a> |
+  <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.AsyncResponse.html#t:t/0">HTTPoison.AsyncResponse.t</a></pre>
         
       </div>
     
@@ -550,8 +562,8 @@ failure.</p>
       <div class="specs">
         
           <pre>head(binary, <a href="#t:headers/0">headers</a>, <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>) ::
-  {:ok, <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.Response.html#t:t/0">HTTPoison.Response.t</a> | <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.AsyncResponse.html#t:t/0">HTTPoison.AsyncResponse.t</a>} |
-  {:error, <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.Error.html#t:t/0">HTTPoison.Error.t</a>}</pre>
+  {:ok, <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.Response.html#t:t/0">HTTPoison.Response.t</a> | <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.AsyncResponse.html#t:t/0">HTTPoison.AsyncResponse.t</a>} |
+  {:error, <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.Error.html#t:t/0">HTTPoison.Error.t</a>}</pre>
         
       </div>
     
@@ -585,8 +597,8 @@ otherwise.</p>
       <div class="specs">
         
           <pre>head!(binary, <a href="#t:headers/0">headers</a>, <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>) ::
-  <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.Response.html#t:t/0">HTTPoison.Response.t</a> |
-  <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.AsyncResponse.html#t:t/0">HTTPoison.AsyncResponse.t</a></pre>
+  <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.Response.html#t:t/0">HTTPoison.Response.t</a> |
+  <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.AsyncResponse.html#t:t/0">HTTPoison.AsyncResponse.t</a></pre>
         
       </div>
     
@@ -620,8 +632,8 @@ failure.</p>
       <div class="specs">
         
           <pre>options(binary, <a href="#t:headers/0">headers</a>, <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>) ::
-  {:ok, <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.Response.html#t:t/0">HTTPoison.Response.t</a> | <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.AsyncResponse.html#t:t/0">HTTPoison.AsyncResponse.t</a>} |
-  {:error, <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.Error.html#t:t/0">HTTPoison.Error.t</a>}</pre>
+  {:ok, <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.Response.html#t:t/0">HTTPoison.Response.t</a> | <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.AsyncResponse.html#t:t/0">HTTPoison.AsyncResponse.t</a>} |
+  {:error, <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.Error.html#t:t/0">HTTPoison.Error.t</a>}</pre>
         
       </div>
     
@@ -655,8 +667,8 @@ otherwise.</p>
       <div class="specs">
         
           <pre>options!(binary, <a href="#t:headers/0">headers</a>, <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>) ::
-  <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.Response.html#t:t/0">HTTPoison.Response.t</a> |
-  <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.AsyncResponse.html#t:t/0">HTTPoison.AsyncResponse.t</a></pre>
+  <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.Response.html#t:t/0">HTTPoison.Response.t</a> |
+  <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.AsyncResponse.html#t:t/0">HTTPoison.AsyncResponse.t</a></pre>
         
       </div>
     
@@ -690,8 +702,8 @@ failure.</p>
       <div class="specs">
         
           <pre>patch(binary, <a href="#t:body/0">body</a>, <a href="#t:headers/0">headers</a>, <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>) ::
-  {:ok, <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.Response.html#t:t/0">HTTPoison.Response.t</a> | <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.AsyncResponse.html#t:t/0">HTTPoison.AsyncResponse.t</a>} |
-  {:error, <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.Error.html#t:t/0">HTTPoison.Error.t</a>}</pre>
+  {:ok, <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.Response.html#t:t/0">HTTPoison.Response.t</a> | <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.AsyncResponse.html#t:t/0">HTTPoison.AsyncResponse.t</a>} |
+  {:error, <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.Error.html#t:t/0">HTTPoison.Error.t</a>}</pre>
         
       </div>
     
@@ -725,8 +737,8 @@ otherwise.</p>
       <div class="specs">
         
           <pre>patch!(binary, <a href="#t:body/0">body</a>, <a href="#t:headers/0">headers</a>, <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>) ::
-  <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.Response.html#t:t/0">HTTPoison.Response.t</a> |
-  <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.AsyncResponse.html#t:t/0">HTTPoison.AsyncResponse.t</a></pre>
+  <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.Response.html#t:t/0">HTTPoison.Response.t</a> |
+  <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.AsyncResponse.html#t:t/0">HTTPoison.AsyncResponse.t</a></pre>
         
       </div>
     
@@ -760,8 +772,8 @@ failure.</p>
       <div class="specs">
         
           <pre>post(binary, <a href="#t:body/0">body</a>, <a href="#t:headers/0">headers</a>, <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>) ::
-  {:ok, <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.Response.html#t:t/0">HTTPoison.Response.t</a> | <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.AsyncResponse.html#t:t/0">HTTPoison.AsyncResponse.t</a>} |
-  {:error, <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.Error.html#t:t/0">HTTPoison.Error.t</a>}</pre>
+  {:ok, <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.Response.html#t:t/0">HTTPoison.Response.t</a> | <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.AsyncResponse.html#t:t/0">HTTPoison.AsyncResponse.t</a>} |
+  {:error, <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.Error.html#t:t/0">HTTPoison.Error.t</a>}</pre>
         
       </div>
     
@@ -795,8 +807,8 @@ otherwise.</p>
       <div class="specs">
         
           <pre>post!(binary, <a href="#t:body/0">body</a>, <a href="#t:headers/0">headers</a>, <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>) ::
-  <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.Response.html#t:t/0">HTTPoison.Response.t</a> |
-  <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.AsyncResponse.html#t:t/0">HTTPoison.AsyncResponse.t</a></pre>
+  <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.Response.html#t:t/0">HTTPoison.Response.t</a> |
+  <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.AsyncResponse.html#t:t/0">HTTPoison.AsyncResponse.t</a></pre>
         
       </div>
     
@@ -817,7 +829,7 @@ failure.</p>
     </a>
     <span class="signature">process_headers(headers)</span>
     
-      <a href="https://github.com/Toady00/consul/blob/master/lib/consul/http/client.ex#L37" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/Toady00/consul/blob/master/lib/consul/http/client.ex#L25" class="view-source" rel="help" title="View Source">
        <i class="icon-code"></i>
      </a>
     
@@ -836,7 +848,26 @@ failure.</p>
     </a>
     <span class="signature">process_request_body(body)</span>
     
-      <a href="https://github.com/Toady00/consul/blob/master/lib/consul/http/client.ex#L29" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/Toady00/consul/blob/master/lib/consul/http/client.ex#L17" class="view-source" rel="help" title="View Source">
+       <i class="icon-code"></i>
+     </a>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    
+  </section>
+</div>
+<div class="detail" id="process_request_headers/1">
+  
+  <div class="detail-header">
+    <a href="#process_request_headers/1" class="detail-link" title="Link to this function">
+      <i class="icon-link"></i>
+    </a>
+    <span class="signature">process_request_headers(headers)</span>
+    
+      <a href="https://github.com/Toady00/consul/blob/master/lib/consul/http/client.ex#L2" class="view-source" rel="help" title="View Source">
        <i class="icon-code"></i>
      </a>
     
@@ -855,7 +886,26 @@ failure.</p>
     </a>
     <span class="signature">process_response_body(body)</span>
     
-      <a href="https://github.com/Toady00/consul/blob/master/lib/consul/http/client.ex#L20" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/Toady00/consul/blob/master/lib/consul/http/client.ex#L8" class="view-source" rel="help" title="View Source">
+       <i class="icon-code"></i>
+     </a>
+    
+    
+    
+  </div>
+  <section class="docstring">
+    
+  </section>
+</div>
+<div class="detail" id="process_response_chunk/1">
+  
+  <div class="detail-header">
+    <a href="#process_response_chunk/1" class="detail-link" title="Link to this function">
+      <i class="icon-link"></i>
+    </a>
+    <span class="signature">process_response_chunk(chunk)</span>
+    
+      <a href="https://github.com/Toady00/consul/blob/master/lib/consul/http/client.ex#L2" class="view-source" rel="help" title="View Source">
        <i class="icon-code"></i>
      </a>
     
@@ -874,7 +924,7 @@ failure.</p>
     </a>
     <span class="signature">process_status_code(status_code)</span>
     
-      <a href="https://github.com/Toady00/consul/blob/master/lib/consul/http/client.ex#L41" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/Toady00/consul/blob/master/lib/consul/http/client.ex#L29" class="view-source" rel="help" title="View Source">
        <i class="icon-code"></i>
      </a>
     
@@ -893,7 +943,7 @@ failure.</p>
     </a>
     <span class="signature">process_url(url)</span>
     
-      <a href="https://github.com/Toady00/consul/blob/master/lib/consul/http/client.ex#L16" class="view-source" rel="help" title="View Source">
+      <a href="https://github.com/Toady00/consul/blob/master/lib/consul/http/client.ex#L4" class="view-source" rel="help" title="View Source">
        <i class="icon-code"></i>
      </a>
     
@@ -927,8 +977,8 @@ failure.</p>
       <div class="specs">
         
           <pre>put(binary, <a href="#t:body/0">body</a>, <a href="#t:headers/0">headers</a>, <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>) ::
-  {:ok, <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.Response.html#t:t/0">HTTPoison.Response.t</a> | <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.AsyncResponse.html#t:t/0">HTTPoison.AsyncResponse.t</a>} |
-  {:error, <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.Error.html#t:t/0">HTTPoison.Error.t</a>}</pre>
+  {:ok, <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.Response.html#t:t/0">HTTPoison.Response.t</a> | <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.AsyncResponse.html#t:t/0">HTTPoison.AsyncResponse.t</a>} |
+  {:error, <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.Error.html#t:t/0">HTTPoison.Error.t</a>}</pre>
         
       </div>
     
@@ -993,8 +1043,8 @@ failure.</p>
       <div class="specs">
         
           <pre>request(atom, binary, <a href="#t:body/0">body</a>, <a href="#t:headers/0">headers</a>, <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>) ::
-  {:ok, <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.Response.html#t:t/0">HTTPoison.Response.t</a> | <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.AsyncResponse.html#t:t/0">HTTPoison.AsyncResponse.t</a>} |
-  {:error, <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.Error.html#t:t/0">HTTPoison.Error.t</a>}</pre>
+  {:ok, <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.Response.html#t:t/0">HTTPoison.Response.t</a> | <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.AsyncResponse.html#t:t/0">HTTPoison.AsyncResponse.t</a>} |
+  {:error, <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.Error.html#t:t/0">HTTPoison.Error.t</a>}</pre>
         
       </div>
     
@@ -1024,40 +1074,28 @@ failure.</p>
 </li>
 <li><code class="inline">{:file, &quot;/path/to/file&quot;}</code> - send a file
 </li>
-</ul>
-<p>Options:</p>
-<ul>
-<li><code class="inline">:timeout</code> - timeout to establish a connection, in milliseconds. Default is 8000
-</li>
-<li><code class="inline">:recv_timeout</code> - timeout used when receiving a connection. Default is 5000
-</li>
-<li><code class="inline">:stream_to</code> - a PID to stream the response to
-</li>
-<li><code class="inline">:async</code> - if given <code class="inline">:once</code>, will only stream one message at a time, requires call to <code class="inline">stream_next</code>
-</li>
-<li><code class="inline">:proxy</code> - a proxy to be used for the request; it can be a regular url
-or a <code class="inline">{Host, Proxy}</code> tuple
-</li>
-<li><code class="inline">:proxy_auth</code> - proxy authentication <code class="inline">{User, Password}</code> tuple
-</li>
-<li><code class="inline">:ssl</code> - SSL options supported by the <code class="inline">ssl</code> erlang module
-</li>
-<li><code class="inline">:follow_redirect</code> - a boolean that causes redirects to be followed
-</li>
-<li><code class="inline">:max_redirect</code> - an integer denoting the maximum number of redirects to follow
-</li>
-<li><code class="inline">:params</code> - an enumerable consisting of two-item tuples that will be appended to the url as query string parameters
-</li>
-</ul>
-<p>Timeouts can be an integer or <code class="inline">:infinity</code></p>
-<p>This function returns <code class="inline">{:ok, response}</code> or <code class="inline">{:ok, async_response}</code> if the
-request is successful, <code class="inline">{:error, reason}</code> otherwise.</p>
-<h2 id="request/5-examples" class="section-heading">
-  <a href="#request/5-examples" class="hover-link"><i class="icon-link"></i></a>
-  Examples
-</h2>
+<li><code class="inline">{:stream, enumerable} - lazily send a stream of binaries/charlists
 
-<pre><code class="elixir">request(:post, &quot;https://my.website.com&quot;, &quot;{\&quot;foo\&quot;: 3}&quot;, [{&quot;Accept&quot;, &quot;application/json&quot;}])</code></pre>
+Options:
+  *</code>:timeout<code class="inline">- timeout to establish a connection, in milliseconds. Default is 8000
+  *</code>:recv_timeout<code class="inline">- timeout used when receiving a connection. Default is 5000
+  *</code>:stream_to<code class="inline">- a PID to stream the response to
+  *</code>:async<code class="inline">- if given</code>:once<code class="inline">, will only stream one message at a time, requires call to</code>stream_next<code class="inline">*</code>:proxy<code class="inline">- a proxy to be used for the request; it can be a regular url
+    or a</code>{Host, Port}<code class="inline">tuple
+  *</code>:proxy_auth<code class="inline">- proxy authentication</code>{User, Password}<code class="inline">tuple
+  *</code>:ssl<code class="inline">- SSL options supported by the</code>ssl<code class="inline">erlang module
+  *</code>:follow_redirect<code class="inline">- a boolean that causes redirects to be followed
+  *</code>:max_redirect<code class="inline">- an integer denoting the maximum number of redirects to follow
+  *</code>:params<code class="inline">- an enumerable consisting of two-item tuples that will be appended to the url as query string parameters
+
+Timeouts can be an integer or</code>:infinity<code class="inline">This function returns</code>{:ok, response}<code class="inline">or</code>{:ok, async_response}<code class="inline">if the
+request is successful,</code>{:error, reason}` otherwise.
+
+## Examples
+
+    request(:post, “https://my.website.com”, “{\”foo\”: 3}”, [{“Accept”, “application/json”}])
+</li>
+</ul>
 
   </section>
 </div>
@@ -1083,7 +1121,7 @@ request is successful, <code class="inline">{:error, reason}</code> otherwise.</
     
       <div class="specs">
         
-          <pre>request!(atom, binary, <a href="#t:body/0">body</a>, <a href="#t:headers/0">headers</a>, <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>) :: <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.Response.html#t:t/0">HTTPoison.Response.t</a></pre>
+          <pre>request!(atom, binary, <a href="#t:body/0">body</a>, <a href="#t:headers/0">headers</a>, <a href="http://elixir-lang.org/docs/stable/elixir/Keyword.html#t:t/0">Keyword.t</a>) :: <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.Response.html#t:t/0">HTTPoison.Response.t</a></pre>
         
       </div>
     
@@ -1133,15 +1171,15 @@ request fails.</p>
     
       <div class="specs">
         
-          <pre>stream_next(<a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.AsyncResponse.html#t:t/0">HTTPoison.AsyncResponse.t</a>) ::
-  {:ok, <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.AsyncResponse.html#t:t/0">HTTPoison.AsyncResponse.t</a>} |
-  {:error, <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.Error.html#t:t/0">HTTPoison.Error.t</a>}</pre>
+          <pre>stream_next(<a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.AsyncResponse.html#t:t/0">HTTPoison.AsyncResponse.t</a>) ::
+  {:ok, <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.AsyncResponse.html#t:t/0">HTTPoison.AsyncResponse.t</a>} |
+  {:error, <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.Error.html#t:t/0">HTTPoison.Error.t</a>}</pre>
         
       </div>
     
   </div>
   <section class="docstring">
-    <p>Requests the next message to be streamed for a given <a href="https://hexdocs.pm/httpoison/0.10.0/HTTPoison.AsyncResponse.html"><code class="inline">HTTPoison.AsyncResponse</code></a>.</p>
+    <p>Requests the next message to be streamed for a given <a href="https://hexdocs.pm/httpoison/0.11.0/HTTPoison.AsyncResponse.html"><code class="inline">HTTPoison.AsyncResponse</code></a>.</p>
 <p>See <a href="#request!/5"><code class="inline">request!/5</code></a> for more detailed information.</p>
 
   </section>

@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.14.3">
-    <title>Consul – Consul v0.1.5</title>
+    <title>Consul – Consul v0.1.6</title>
     <link rel="stylesheet" href="dist/app-091c05798a.css" />
     
     <script src="dist/sidebar_items.js"></script>
@@ -26,7 +26,7 @@
         Consul
       </h1>
       <h2 class="sidebar-projectVersion">
-        v0.1.5
+        v0.1.6
       </h2>
     </div>
     
@@ -58,15 +58,20 @@
 
 
 <h1>Consul</h1>
-<p><a href="https://hex.pm/packages/consul_client"><img src="https://img.shields.io/hexpm/v/consul_client.svg" alt="Hex.pm"/></a></p>
+<p><a href="https://hex.pm/packages/consul_client"><img src="https://img.shields.io/hexpm/v/consul_client.svg" alt="Hex.pm"/></a> <a href="https://gitlab.brandondennis.me/toady00/consul/commits/master"><img src="https://gitlab.brandondennis.me/toady00/consul/badges/master/build.svg" alt="build status"/></a> <a href="https://gitlab.brandondennis.me/toady00/consul/commits/master"><img src="https://gitlab.brandondennis.me/toady00/consul/badges/master/coverage.svg" alt="coverage report"/></a></p>
 <p>100% API Complete Consul Client written in Elixir</p>
-<h2 id="new-in-v0-1-5" class="section-heading">
-  <a href="#new-in-v0-1-5" class="hover-link"><i class="icon-link"></i></a>
-  New in v0.1.5
+<h2 id="recent-changes" class="section-heading">
+  <a href="#recent-changes" class="hover-link"><i class="icon-link"></i></a>
+  Recent Changes
 </h2>
 
 <p>Higher level support for KV api and blocking queries on KV api (watching a KV for changes).
 See the hex docs for now. I’ll add an quick how-to to the readme soon.</p>
+<p>Added some tests for the Raw client. Probably brittle and needs work but they
+did catch some errors I hadn’t noticed. They also servce as examples for how to
+use some of the endpoints.</p>
+<p>Found some issues with the way the paths were being generated in the <a href="Consul.HTTP.Raw.html"><code class="inline">Consul.HTTP.Raw</code></a>
+client. This should fix those problems.</p>
 <h2 id="usage" class="section-heading">
   <a href="#usage" class="hover-link"><i class="icon-link"></i></a>
   Usage
