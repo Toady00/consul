@@ -13,6 +13,9 @@ Added some tests for the Raw client. Probably brittle and needs work but they
 did catch some errors I hadn't noticed. They also servce as examples for how to
 use some of the endpoints.
 
+Found some issues with the way the paths were being generated in the `Consul.HTTP.Raw`
+client. This should fix those problems.
+
 ## Usage
 
 **This package is very alpha**
