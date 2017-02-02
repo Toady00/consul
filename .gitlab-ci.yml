@@ -1,0 +1,35 @@
+image: registry.brandondennis.me/dockerfiles/elixir
+before_script:
+  - "mix deps.get"
+stages:
+  - test
+cache:
+  paths:
+    - _build
+    - deps
+run_test:
+  tags:
+    - server
+  stage: test
+  script:
+    - "mix test"
+coverage:
+  tags:
+    - server
+  stage: test
+  variables:
+    MIX_ENV: test
+  script:
+    - "mix coveralls.html"
+lint:
+  tags:
+    - server
+  stage: test
+  script:
+    - "mix do credo, dogma"
+dialyzer:
+  tags:
+    - server
+  stage: test
+  script:
+    - "mix dialyzer"
