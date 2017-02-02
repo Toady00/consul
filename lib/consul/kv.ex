@@ -6,8 +6,8 @@ defmodule Consul.KV do
   @type path    :: String.t
   @type key     :: String.t
   @type value   :: any
-  @type flags   :: pos_integer
-  @type index   :: pos_integer
+  @type flags   :: non_neg_integer
+  @type index   :: non_neg_integer
   @type options :: keyword
 
   @type t :: %__MODULE__{
