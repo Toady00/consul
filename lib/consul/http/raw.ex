@@ -431,7 +431,7 @@ defmodule Consul.HTTP.Raw do
         def unquote(name)(params \\ []) do
           {http_options, params} = Keyword.split(params, unquote(http_option_keys))
           options = Keyword.put(http_options, :params, params)
-          apply(Consul.HTTP.Client, unquote(:"delete!"), [unquote(path), [], options])
+          apply(Consul.HTTP.Client, unquote(:"delete!"), [unquote(path_segments_to_macro.(path)), [], options])
         end
       %{path: path, name: name, method: :put, args: args} ->
         joined_args = Enum.map(args, &({&1, [], __MODULE__}))
@@ -444,7 +444,7 @@ defmodule Consul.HTTP.Raw do
         def unquote(name)(data, params \\ []) do
           {http_options, params} = Keyword.split(params, unquote(http_option_keys))
           options = Keyword.put(http_options, :params, params)
-          apply(Consul.HTTP.Client, unquote(:"put!"), [unquote(path), data, [], options])
+          apply(Consul.HTTP.Client, unquote(:"put!"), [unquote(path_segments_to_macro.(path)), data, [], options])
         end
       %{path: path, name: name, method: :post, args: args} ->
         joined_args = Enum.map(args, &({&1, [], __MODULE__}))
@@ -457,7 +457,7 @@ defmodule Consul.HTTP.Raw do
         def unquote(name)(data, params \\ []) do
           {http_options, params} = Keyword.split(params, unquote(http_option_keys))
           options = Keyword.put(http_options, :params, params)
-          apply(Consul.HTTP.Client, unquote(:"post!"), [unquote(path), data, [], options])
+          apply(Consul.HTTP.Client, unquote(:"post!"), [unquote(path_segments_to_macro.(path)), data, [], options])
         end
     end
   end)
