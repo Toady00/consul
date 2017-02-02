@@ -40,13 +40,14 @@ defmodule Consul.Watch do
     task(kv.key, kv.modify_index)
   end
 
+  # TODO: Make the timeout user configurable
   @doc ~S"""
   Create a task representing a blocking KV request.
   """
   @spec task(String.t, pos_integer) :: Task.t
   def task(path, index) do
     Task.Supervisor.async(@supervisor,
-      Raw, :kv_get, [path, [index: index, recv_timeout: 300_000]]
+      Raw, :kv_get, [path, [index: index, recv_timeout: 400_000]]
     )
   end
 end
