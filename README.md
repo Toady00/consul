@@ -1,13 +1,17 @@
 # Consul
 
-[![Hex.pm](https://img.shields.io/hexpm/v/consul_client.svg)](https://hex.pm/packages/consul_client)
+[![Hex.pm](https://img.shields.io/hexpm/v/consul_client.svg)](https://hex.pm/packages/consul_client) [![build status](https://gitlab.brandondennis.me/toady00/consul/badges/master/build.svg)](https://gitlab.brandondennis.me/toady00/consul/commits/master) [![coverage report](https://gitlab.brandondennis.me/toady00/consul/badges/master/coverage.svg)](https://gitlab.brandondennis.me/toady00/consul/commits/master)
 
 100% API Complete Consul Client written in Elixir
 
-## New in v0.1.5
+## Recent Changes
 
 Higher level support for KV api and blocking queries on KV api (watching a KV for changes).
 See the hex docs for now. I'll add an quick how-to to the readme soon.
+
+Added some tests for the Raw client. Probably brittle and needs work but they
+did catch some errors I hadn't noticed. They also servce as examples for how to
+use some of the endpoints.
 
 ## Usage
 
