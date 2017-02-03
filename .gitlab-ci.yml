@@ -1,5 +1,7 @@
 image: registry.brandondennis.me/dockerfiles/elixir
 before_script:
+  - "nohup consul agent --data-dir /tmp/consul &>/dev/null &"
+  - "until $(echo > /dev/tcp/localhost/8500); do sleep 1; done"
   - "mix deps.get"
 stages:
   - test
