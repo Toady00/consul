@@ -1,4 +1,6 @@
 defmodule Consul.HTTP.Raw do
+  @behaviour Consul.HTTP.Adapter
+
   endpoints = %{
     v1: [
       # ACL
