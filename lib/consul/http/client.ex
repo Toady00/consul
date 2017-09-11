@@ -1,10 +1,8 @@
 defmodule Consul.HTTP.Client do
   use HTTPoison.Base
 
-  @base_url Application.get_env(:consul, :base_url, "localhost:8500")
-
   def process_url(url) do
-    "http://#{@base_url}/#{url}"
+    "http://#{base_url()}/#{url}"
   end
 
   def process_response_body(body) do
@@ -45,5 +43,9 @@ defmodule Consul.HTTP.Client do
   end
   defp decode_body(item) do
     item
+  end
+
+  defp base_url() do
+    System.get_env("CONSUL_BASE_URL") || Application.get_env(:consul, :base_url, "localhost:8500")
   end
 end
