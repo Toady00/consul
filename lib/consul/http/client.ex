@@ -1,8 +1,12 @@
 defmodule Consul.HTTP.Client do
+  require Logger
+
   use HTTPoison.Base
 
-  def process_url(url) do
-    "http://#{base_url()}/#{url}"
+  def process_url(query) do
+    url = "http://#{base_url()}/#{url}"
+    Logger.debug("Consul.HTTP.Client -- url: #{url}")
+    url
   end
 
   def process_response_body(body) do
