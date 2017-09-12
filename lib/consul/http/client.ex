@@ -4,7 +4,7 @@ defmodule Consul.HTTP.Client do
   use HTTPoison.Base
 
   def process_url(query) do
-    url = "http://#{base_url()}/#{url}"
+    url = "http://#{base_url()}/#{query}"
     Logger.debug("Consul.HTTP.Client -- url: #{url}")
     url
   end
