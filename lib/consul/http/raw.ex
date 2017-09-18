@@ -157,7 +157,7 @@ defmodule Consul.HTTP.Raw do
         method: :get
       },
       %{
-        path: ["v1", "catalog", "services", {:var, :service}],
+        path: ["v1", "catalog", "service", {:var, :service}],
         args: [:service],
         name: :catalog_service,
         method: :get
