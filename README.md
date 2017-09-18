@@ -102,7 +102,7 @@ Consul.HTTP.Raw.kv_put "elixir", "is awesome", cas: 23
 |v1/catalog/datacenters                     | `:catalog_datacenters`|
 |v1/catalog/nodes                           | `:catalog_nodes`|
 |v1/catalog/services                        | `:catalog_services`|
-|v1/catalog/services/#{service}             | `:catalog_service`|
+|v1/catalog/service/#{service}              | `:catalog_service`|
 |v1/catalog/node/#{node_id}                 | `:catalog_node`|
 |v1/event/fire/#{name}                      | `:event_fire`|
 |v1/event/list                              | `:event_list`|
