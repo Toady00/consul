@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# compile before commit
+mix compile --warnings-as-errors
+COMPILE_RES=$?
+if [ $COMPILE_RES -ne 0 ]
+then
+  exit $COMPILE_RES
+fi

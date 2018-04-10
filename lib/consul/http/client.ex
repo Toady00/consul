@@ -1,4 +1,5 @@
 defmodule Consul.HTTP.Client do
+  @moduledoc false
   require Logger
 
   use HTTPoison.Base
@@ -47,7 +48,7 @@ defmodule Consul.HTTP.Client do
     item
   end
 
-  defp base_url() do
+  defp base_url do
     System.get_env("CONSUL_BASE_URL") || Application.get_env(:consul, :base_url, "localhost:8500")
   end
 end

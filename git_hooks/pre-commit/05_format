@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# ensure code formatted
+#mix format --check-formatted
+echo "\033[31mPlease update to elixir 1.6 and enable formatter\033[0m"
+FORMAT_RES=$?
+if [ $FORMAT_RES -ne 0 ]
+then
+  exit $FORMAT_RES
+fi

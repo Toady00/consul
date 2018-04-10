@@ -1,0 +1,10 @@
+#!/bin/sh
+
+UNREACHABLE=$(MIX_ENV=test mix xref unreachable --abort-if-any)
+
+if [ "$UNREACHABLE" != "" ];
+then
+  echo "\n\033[31m\033[1m== ERROR: unreachable code ==\033[0m"
+  echo $UNREACHABLE
+  exit 1
+fi

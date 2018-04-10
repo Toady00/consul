@@ -1,4 +1,6 @@
 defmodule Consul.HTTP.Response do
+  @moduledoc false
+
   def key(res),          do: extract(res, "Key")
 
   def value(res),        do: extract(res, "Value")

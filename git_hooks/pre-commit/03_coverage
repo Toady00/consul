@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# test coverage
+mix coveralls --umbrella
+
+TEST_RES=$?
+if [ $TEST_RES -ne 0 ]
+then
+  exit $TEST_RES
+fi

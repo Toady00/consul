@@ -1,4 +1,5 @@
 defmodule Consul.HTTP.Raw do
+  @moduledoc false
   @behaviour Consul.HTTP.Adapter
 
   endpoints = %{
