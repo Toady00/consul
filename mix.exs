@@ -32,8 +32,8 @@ defmodule Consul.Mixfile do
       {:dogma, "~> 0.1", only: :dev},
       {:mix_test_watch, "~> 0.2", only: :dev},
       {:ex_unit_notifier, "~> 0.1", only: :test},
-      {:poison, "~> 3.0"},
-      {:httpoison, "~> 0.13.0"},
+      {:poison, "~> 3.1"},
+      {:httpoison, "~> 1.5"},
       {:ex_doc, "~> 0.14", only: :dev}
     ]
   end
