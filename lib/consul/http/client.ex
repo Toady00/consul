@@ -60,7 +60,7 @@ defmodule Consul.HTTP.Client do
   end
 
   def request(method, url, body \\ "", headers \\ [], opts \\ []) do
-    response = super(url, body, headers, opts)
+    response = super(method, url, body, headers, opts)
 
     Logger.info(fn ->
       """
