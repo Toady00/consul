@@ -4,6 +4,10 @@ defmodule Consul.HTTP.Client do
 
   use HTTPoison.Base
 
+  def process_url("http" <> _rest = url) do
+    url
+  end
+
   def process_url(query) do
     "http://#{base_url()}/#{query}"
   end
@@ -60,6 +64,12 @@ defmodule Consul.HTTP.Client do
   end
 
   def request(method, url, body \\ "", headers \\ [], opts \\ []) do
+    {url, opts} =
+      case Keyword.get(opts, :base_url) do
+        "" <> custom_base_url -> {custom_base_url <> url, Keyword.drop(opts, [:base_url])}
+        nil -> {url, opts}
+      end
+
     response = super(method, url, body, headers, opts)
 
     Logger.info(fn ->
